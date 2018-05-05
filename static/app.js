@@ -1,6 +1,6 @@
 // send request to /names and populate select dropdown
 
-var names_url = 'http://127.0.0.1:5000/names';
+var names_url = '/names';
 
 Plotly.d3.json(names_url, function(error, response) {
 
@@ -25,7 +25,7 @@ for (var i = 0; i < response.length; i++) {
 
 function optionChanged(data) {
 
-   sample_url =  `http://127.0.0.1:5000/samples/${data}`;
+   sample_url =  `/samples/${data}`;
 
    Plotly.d3.json(sample_url, function(error, response) {
 
@@ -84,7 +84,7 @@ Plotly.newPlot('bubble', bubble_data, bubble_layout);
 
 
 // update meta section 
-meta_url = `http://127.0.0.1:5000/metadata/${data}`;
+meta_url = `/metadata/${data}`;
 
 Plotly.d3.json(meta_url, function(error, response) {
 
