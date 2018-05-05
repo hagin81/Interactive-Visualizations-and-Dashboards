@@ -6,6 +6,7 @@ from sqlalchemy import create_engine, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy import Column, Integer, String, Numeric, Text, Float, Date
+import os
 from flask import (
     Flask,
     render_template,
@@ -13,8 +14,8 @@ from flask import (
     jsonify,
     request)
 
-engine = create_engine("sqlite:///belly_button_biodiversity.sqlite")
-conn = engine.connect()
+db_uri = os.getenv("DATABASE_URI", "sqlite:///belly_button_biodiversity.sqlite")
+engine = create_engine( db_uri )
 
 #################################################
 # Flask Setup
