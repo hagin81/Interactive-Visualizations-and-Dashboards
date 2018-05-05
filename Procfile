@@ -1,1 +1,1 @@
-web: gunicorn -w 4 app:dashboard
+web: gunicorn -w 4 app:app

@@ -19,7 +19,7 @@ conn = engine.connect()
 #################################################
 # Flask Setup
 #################################################
-app = Flask('dashboard')
+app = Flask(__name__)
 
 @app.route("/")
 def home():
