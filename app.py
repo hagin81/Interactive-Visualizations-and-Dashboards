@@ -47,6 +47,7 @@ def names():
     query = 'select * from samples'
     row = conn.execute( query ).fetchone()
     names  = row.keys()
+    names.pop(0)
     return jsonify( names ) 
     
 @app.route('/otu')
