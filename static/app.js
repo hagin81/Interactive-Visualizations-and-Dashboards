@@ -23,7 +23,20 @@ for (var i = 0; i < response.length; i++) {
    
  });
 
+// default plot on page load
+plot("BB_940");
+
+// handle sample change
 function optionChanged(data) {
+   
+   plot(data);
+} 
+
+function plot(data) {
+
+   // title of plot 
+   var selected = document.getElementById('selDataset').value;
+   document.getElementById('chart-title').innerHTML = selected;
 
    sample_url =  `/samples/${data}`;
 
@@ -72,7 +85,6 @@ var trace1 = {
 var bubble_data = [trace1];
 
 var bubble_layout = {
-  title: 'Belly Button Biodiversity',
   showlegend: false,
   height: 400,
   width: 500
